@@ -1,0 +1,741 @@
+<html lang="en">
+   <head>
+      <title>Price</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="main.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+      <link rel="stylesheet" href="assets/css/aos.css">
+      
+      <script src="assets/js/glightbox.min.js"></script>
+      <script src="assets/js/aos.js"></script>
+      <script src="assets/js/swiper-bundle.min.js"></script>
+      <script src="assets/js/purecounter_vanilla.js"></script>
+      <script src="assets/js/main.js"></script>
+   </head>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <script>
+      $(document).ready(function() {
+         const pirceExampleId = $('#price-example-id')
+         const priceId = $('#price-id');
+         const descriptionId = $('#descrption-id');
+         const footer1Id = $('#footer1-id');
+         const footer2Id = $('#footer2-id');
+         // const monthPrice1 = $('#monthPrice1');
+         // const monthPrice2 = $('#monthPrice2');
+         // const monthPrice3 = $('#monthPrice3');
+
+         priceId.hide();
+
+         $('input[name="btnradio"]').change(function() {
+            if ($(this).attr('id') === 'btnradio1') {
+               priceId.hide();
+               pirceExampleId.show();
+            } 
+            else if ($(this).attr('id') === 'btnradio2') {
+               priceId.show();
+               pirceExampleId.hide();
+               $('#monthPrice1').text('499');
+               $('#monthPrice2').text('699');
+               $('#monthPrice3').text('999');
+               $('#monthly-1').text("");
+               $('#monthly-2').text("")
+               $('#monthly-3').text("")
+            }
+            else if ($(this).attr('id') === 'btnradio3') {
+               priceId.show();
+               pirceExampleId.hide();
+               $('#monthPrice1').text('1499');
+               $('#monthPrice2').text('2299');
+               $('#monthPrice3').text('2999');
+               $('#monthly-1').text("");
+               $('#monthly-2').text("")
+               $('#monthly-3').text("")
+            }
+            else if ($(this).attr('id') === 'btnradio4') {
+               priceId.show();
+               pirceExampleId.hide();
+               $('#monthPrice1').text('3999');
+               $('#monthPrice2').text('6999');
+               $('#monthPrice3').text('11799');
+               $('#monthly-1').text("");
+               $('#monthly-2').text("")
+               $('#monthly-3').text("")
+            }
+            setEqualHeights();
+         });
+
+         // Function to set equal heights for .card-body elements
+         function setEqualHeights() {
+            var cards = $(".card");
+            var maxHeight3 = 0;
+            var maxHeight1 = 0;
+            var maxHeight2 = 0;
+
+            cards.each(function() {
+               var cardBody3 = $(this).find(".card-body-3");
+               var cardBody1 = $(this).find(".card-body-1");
+               var cardBody2 = $(this).find(".card-body-2");
+
+               cardBody3.css("height", "auto"); // Reset height to auto
+               cardBody1.css("height", "auto");
+               cardBody2.css("height", "auto");
+
+               var cardBodyHeight3 = cardBody3.height();
+               var cardBodyHeight1 = cardBody1.height();
+               var cardBodyHeight2 = cardBody2.height();
+
+               if (cardBodyHeight3 > maxHeight3) {
+                  maxHeight3 = cardBodyHeight3;
+               }
+               if (cardBodyHeight1 > maxHeight1) {
+                  maxHeight1 = cardBodyHeight1
+               }
+               if (cardBodyHeight2 > maxHeight2) {
+                  maxHeight2 = cardBodyHeight2
+               }
+            });
+
+            cards.find(".card-body-3").height(maxHeight3);
+            cards.find(".card-body-1").height(maxHeight1);
+            cards.find(".card-body-2").height(maxHeight2);
+         }
+
+         // Call the function on page load
+         setEqualHeights();
+
+         // Add a window resize event listener for real-time updates
+         $(window).on("resize", function() {
+            setEqualHeights();
+         });
+
+         // Get the query parameter value from the URL
+         const urlParams = new URLSearchParams(window.location.search);
+         const priceTypevalue = urlParams.get('pricetype');
+
+         document.getElementById("btnradio1").checked = true;
+         document.getElementById("btnradio2").checked = false;
+         document.getElementById("btnradio3").checked = false;
+         document.getElementById("btnradio4").checked = false;
+         if (priceTypevalue == 1) {
+            document.getElementById("btnradio1").checked = true;
+            priceId.hide();
+            pirceExampleId.show();
+         }
+         if (priceTypevalue == 2) {
+            document.getElementById("btnradio2").checked = true;
+            priceId.show();
+            pirceExampleId.hide();
+            $('#monthPrice1').text('499');
+            $('#monthPrice2').text('699');
+            $('#monthPrice3').text('999');
+            $('#monthly-1').text("");
+            $('#monthly-2').text("")
+            $('#monthly-3').text("")
+         }
+         if (priceTypevalue == 3) {
+            document.getElementById("btnradio3").checked = true;
+            priceId.show();
+            pirceExampleId.hide();
+            $('#monthPrice1').text('1499');
+            $('#monthPrice2').text('2299');
+            $('#monthPrice3').text('2999');
+            $('#monthly-1').text("");
+            $('#monthly-2').text("")
+            $('#monthly-3').text("")
+         }
+         if (priceTypevalue == 4) {
+            document.getElementById("btnradio4").checked = true;
+            priceId.show();
+            pirceExampleId.hide();
+            $('#monthPrice1').text('3999');
+            $('#monthPrice2').text('6999');
+            $('#monthPrice3').text('11799');
+            $('#monthly-1').text("");
+            $('#monthly-2').text("")
+            $('#monthly-3').text("")
+         }
+         setEqualHeights();
+      })
+   </script>
+
+   <body style="overflow-x: hidden;">    
+      <div class="container-fluid full-width-container">
+
+      <!-- div_1 -->
+      <nav class="navbar navbar-expand-lg navbar-black bg-black row padding-top-30 nav-pl-1 nav-pr-1 min-size">
+         <div class="container-fluid">
+            <a href="index.html"><img src="images/Logo.png" alt="mark" width="120" height="120"/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon" style="border: 3px solid #9c9797;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end nav-pr-2 font-family-2" id="navbarScroll">
+               <div>
+               <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll nav-font">
+                  <li class="nav-item nav-mr-1">
+                     <a class="nav-link nav-link-custom-white" href="index.html">Home<span class="nav-circle align-middle"></span></a>
+                  </li>
+                  <li class="nav-item nav-mr-1">
+                     <a class="nav-link nav-link-custom-white" href="2-About.html">Über uns<span class="nav-circle align-middle"></span></a>
+                  </li>
+                  <li class="nav-item nav-mr-1">
+                     <a class="nav-link nav-link-custom-blue" href="3-Price.html">Preise<span class="nav-circle-blue align-middle"></span></a>
+                  </li>
+                  <!-- <li class="nav-item">
+                     <a class="nav-link nav-link-custom-white" href="4-Portfolio.html" style="pointer-events: none ">Portfolio<span class="nav-circle align-middle"></span></a>
+                  </li> -->
+                  <li class="nav-item nav-mr-1">
+                     <a class="nav-link nav-link-custom-white" href="5-Contact.html">Kontakt<span class="nav-circle align-middle"></span></a>
+                  </li>
+               </ul>
+               </div>
+            </div>
+         </div>
+      </nav>
+
+      <!-- div_2 -->
+      <div class="min-size">
+         <div class="price2-p-70" data-aos="fade-down">
+            <p class="price2-fontSize-89 font-family-1 color-5">Wir haben einen <span class="color-1">Plan</span>,<br>der perfekt für Sie ist.</p>
+         </div>
+   
+         <div class="price2-fontSize-24 font-family-1 price2-mb-70 price2-ml-70 price2-mr-70" data-aos="fade-up">
+            <div class="border-box d-inline-block">
+               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+               <label class="btn btn-price2" for="btnradio1">Einmalig</label>
+               
+               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+               <label class="btn btn-price2" for="btnradio2">1 Monat</label>
+               
+               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+               <label class="btn btn-price2" for="btnradio3">4 Monate</label>
+   
+               <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+               <label class="btn btn-price2" for="btnradio4">12 Monate</label>
+            </div>
+         </div>
+      </div>
+
+      <!-- div_3 -->
+      <div class="min-size" id="price-example-id" data-aos="fade-up">
+      
+         <div class="row px-lg-5 mx-0" style="width: 100%; height: auto;">
+
+            <div class="col-12 col-md-6 col-lg-6 home-pl-2 home-pr-2 home-mb-1">
+               <div class="card">
+                  <div class="card-body card-body-3" >
+                     <p class="font-size-30 font-family-1 text-center price-after-pb price-after-pt" id="card-titleColor">Grafik</p>
+                     <div class="text-center price-example-pl price-example-pr">
+                        <span class="font-size-26 font-family-1">CHF</span>
+                        <span class="font-size-31 font-family-1" id="">699</span>
+                        <br>
+                        <span class="font-size-18 font-family-2">
+                           Geben Sie ihrem Unternehmen neue Farben oder Modernisieren Sie mit uns ihre Firmenpräsenz.
+                        </span>
+                     </div>
+                     
+                     <br>
+                     
+                     <a href="https://calendly.com/webtict23/meeting" type="button" class="btn btn-custom-1 font-size-3 font-family-2 color-3" style="width: 100%;" id="card-buttonColor">Jetzt Starten</a>
+                     <a href="https://calendly.com/webtict23/meeting" type="button" target="_blank" class="btn btn-custom-2 font-size-3 font-family-2 color-5" style="width: 100%;">Einen Anruf Vereinbaren</a>
+                  </div>
+         
+                  <ul class="list-group list-group-flush"></ul>
+                  
+                  <div class="card-body card-body-1">
+                     <p class="font-size-23 font-family-1">Dienste</p>
+                     <p class="font-size-32 font-family-2">Alles in unserem Grafik...</p>
+                     <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                           <div class="image-container">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption text-break">Logo-Design</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Web-und Social-Media Grafiken</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Printmaterialie</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Präsentationsmaterialien</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Mockups</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Werbematerialie</span>
+                           </div>
+                        </div>
+
+                        <div class="col-12 col-md-12 col-lg-6">
+                           <div class="image-container">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption text-break">Grafiken für E-Mail-Marketing</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Grafiken für Veranstaltungen</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Verpackungsdesign</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Illustrationen und Icons</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Farbpalette und Schriftarten</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="card-footer">
+                     <p class="font-size-1 font-family-1 text-center margin-t-40">
+                        <a href="3-Price.html" class="color-5 text-decoration-none" id="card-footerColor">Mehr Erfahren ></a>
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6 home-pl-2 home-pr-2 home-mb-1">
+               <div class="card">
+                  <div class="card-body card-body-3" >
+                     <p class="font-size-30 font-family-1 text-center" id="card-titleColor">Website Kreation & Optimierung</p>
+                     <div class="text-center price-example-pl price-example-pr">
+                        <span class="font-size-26 font-family-1">CHF</span>
+                        <span class="font-size-31 font-family-1" id="">799</span>
+                        <br>
+                        <span class="font-size-18 font-family-2">
+                           Schenken Sie ihrem Unternehmen ein neues Erscheinungsbild und mehr Professionalität
+                        </span>
+                     </div>
+                     
+                     <br>
+                     
+                     <a href="https://calendly.com/webtict23/meeting" type="button" class="btn btn-custom-1 font-size-3 font-family-2 color-3" style="width: 100%;" id="card-buttonColor">Jetzt Starten</a>
+                     <a href="https://calendly.com/webtict23/meeting" type="button" target="_blank" class="btn btn-custom-2 font-size-3 font-family-2 color-5" style="width: 100%;">Einen Anruf Vereinbaren</a>
+                  </div>
+         
+                  <ul class="list-group list-group-flush"></ul>
+                  
+                  <div class="card-body card-body-1">
+                     <p class="font-size-23 font-family-1">Dienste</p>
+                     <p class="font-size-32 font-family-2">Alles in unserem Basisplan...</p>
+                     <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                           <div class="image-container">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Bedarfsanalyse und Beratung</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Geschwindigkeits-und<br> Performance-Optimierung</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Inhaltsstrategie und-Erstellung</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Integration von Tools und <br>Funktionen</span>
+                           </div>
+                        </div>
+
+                        <div class="col-12 col-md-12 col-lg-6">
+                           <div class="image-container">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption text-break">SEO-Optimierung</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Responsives Design</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Entwicklung und Umsetzung</span>
+                           </div>
+                           <div class="image-container" style="margin-top: 0.5vw;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                              </svg>
+                              <span class="caption">Konzeption und Design</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="card-footer">
+                     <p class="font-size-1 font-family-1 text-center margin-t-40">
+                        <a href="3-Price.html" class="color-5 text-decoration-none" id="card-footerColor">Mehr Erfahren ></a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </div>
+
+
+      <!-- div_4 -->
+      <div class="min-size" id="price-id" data-aos="fade-up">
+      
+         <div class="row px-lg-5 mx-0" style="width: 100%; height: auto;">
+
+            <div class="col-12 col-md-6 col-lg-4 home-pl-2 home-pr-2 home-mb-1">
+               <div class="card">
+                  <div class="card-body card-body-3" >
+                     <!-- <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-8 col-md-9 col-lg-9  align-items-center d-flex"> -->
+                           <p class="font-size-30 font-family-1" id="card-titleColor">Basisplan</p>
+                        <!-- </div>
+                        <div class="col-4 col-md-3 col-lg-3">
+                           <span class="badge rounded-pill badge-custom font-size-8 font-family-1 " id="card-badgeColor">Beliebt</span>
+                        </div>
+                     </div> -->
+                     <div class="price-month1-pt">
+                        <span class="font-size-26 font-family-1">CHF</span>
+                        <span class="font-size-31 font-family-1" id="monthPrice1">499</span>
+                        <span class="font-size-4 font-family-1" id="monthly-1">pro monat</span>
+                        <br>
+                        <span class="font-size-18 font-family-2">
+                           Dieses Paket umfasst Werbe Kampagnen Erstellung.
+                        </span>
+                        <br><br>
+                        <a href="https://calendly.com/webtict23/meeting" type="button" class="btn btn-custom-1 font-size-3 font-family-2 color-3" style="width: 100%;" id="card-buttonColor">Jetzt Starten</a>
+                        <a href="https://calendly.com/webtict23/meeting" type="button" target="_blank" class="btn btn-custom-2 font-size-3 font-family-2 color-5" style="width: 100%;">Einen Anruf Vereinbaren</a>
+                     </div>
+                     
+                  </div>
+         
+                  <ul class="list-group list-group-flush"></ul>
+                  
+                  <div class="card-body card-body-2">
+                     <p class="font-size-23 font-family-1">Dienste</p>
+                     <p class="font-size-32 font-family-2">Alles in unserem Basisplan...</p>
+                     <div class="image-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                         <span class="caption text-break">Vollständiges Anzeigenmanagement</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg color-2 icon-size" viewBox="0 0 16 16">
+                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                         </svg>
+                         <span class="caption_font">Funnel Erstellung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg color-2 icon-size" viewBox="0 0 16 16">
+                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                         </svg>
+                         <span class="caption_font">Website Re-Optimierung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg color-2 icon-size" viewBox="0 0 16 16">
+                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                         </svg>
+                        <span class="caption_font">Vollständige Automatisierung</span>
+                     </div>
+                  </div>
+
+                  <div class="card-footer">
+                     <p class="font-size-1 font-family-1 text-center margin-t-40">
+                        <a href="3-Price.html" class="color-5 text-decoration-none" id="card-footerColor">Mehr Erfahren ></a>
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 color-3 home-pl-2 home-pr-2 home-mb-1">
+               <div class="card">
+                  <div class="card-body card-body-3">
+                     <p class="font-size-30 font-family-1 " id="card-titleColor">Standardplan</p>
+                     <div class="price-month2-pt">
+                        <span class="font-size-26 font-family-1">CHF</span>
+                        <span class="font-size-31 font-family-1" id="monthPrice2">699</span>
+                        <span class="font-size-4 font-family-1" id="monthly-2">pro Monat</span>
+                        <br>
+                        <span class="font-size-18 font-family-2">
+                           Dieses Paket umfasst Werbe Kampagnen, Vertriebsketten Entwicklung sowie Webseiten Erstellung und Optimierung.
+                        </span>
+                        <br><br>
+                        <a href="https://calendly.com/webtict23/meeting" class="btn btn-custom-1 font-size-3 font-family-2 color-3" style="width: 100%;" id="card-buttonColor">Jetzt Starten</a>
+                        <a href="https://calendly.com/webtict23/meeting" target="_blank" class="btn btn-custom-2 font-size-3 font-family-2 color-5" style="width: 100%;">Einen Anruf Vereinbaren</a>
+                     </div>
+                  </div>
+         
+                  <ul class="list-group list-group-flush"></ul>
+         
+                  <div class="card-body card-body-2">
+                     <p class="font-size-23 font-family-1">Dienste</p>
+                     <p class="font-size-32 font-family-2">Alles in unserem Standardplan...</p>
+                     <div class="image-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                        <span class="caption text-break">Vollständiges Anzeige Management</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                        <span class="caption">Funnel Erstellung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                        <span class="caption">Website Re-Optimierung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg color-2 icon-size" viewBox="0 0 16 16">
+                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                         </svg>
+                        <span class="caption_font">Vollständige Automatisierung</span>
+                     </div>
+                  </div>
+
+                  <div class="card-footer">
+                     <p class="font-size-1 font-family-1 text-center margin-t-40">
+                        <a href="3-Price.html" class="color-5 text-decoration-none" id="card-footerColor">Mehr Erfahren ></a>
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 home-pl-2 home-pr-2 home-mb-1">
+               <div class="card">
+                  <div class="card-body card-body-3">
+                     <p class="font-size-30 font-family-1 " id="card-titleColor">Premium-Plan</p>
+                     <span class="font-size-26 font-family-1">CHF</span>
+                     <span class="font-size-31 font-family-1" id="monthPrice3">999</span>
+                     <span class="font-size-4 font-family-1" id="monthly-3">pro Monat</span>
+                     <br>
+                     <span class="font-size-18 font-family-2">
+                        Dieses Paket umfasst Werbekampagnen, Vertriebskettenentwicklung, Webseitenerstellung und -optimierung sowie die vollständige Automatisierung mit Webtict Plus.
+                     </span>
+                     <br><br>
+                     <a href="https://calendly.com/webtict23/meeting" class="btn btn-custom-1 font-size-3 font-family-2 color-3" style="width: 100%;" id="card-buttonColor">Jetzt Starten</a>
+                     <a href="https://calendly.com/webtict23/meeting" target="_blank" type="button" class="btn btn-custom-2 font-size-3 font-family-2 color-5" style="width: 100%;">Einen Anruf Vereinbaren</a>
+                  </div>
+         
+                  <ul class="list-group list-group-flush"></ul>
+         
+                  <div class="card-body card-body-2">
+                     <p class="font-size-23 font-family-1">Dienste</p>
+                     <p class="font-size-32 font-family-2">Alles in unserem Premium-Plan....</p>
+                     <div class="image-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                         <span class="caption text-break">Vollständiges Anzeige Management</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                         <span class="caption">Funnel Erstellung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                         <span class="caption">Website Re-Optimierung</span>
+                     </div>
+                     <div class="image-container" style="margin-top: 0.5vw;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg color-1 icon-size" viewBox="0 0 16 16">
+                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                         </svg>
+                         <span class="caption">Vollständige Automatisierung</span>
+                     </div>
+                  </div>
+
+                  <div class="card-footer">
+                     <p class="font-size-1 font-family-1 text-center margin-t-40">
+                        <a href="3-Price.html" class="color-5 text-decoration-none" id="card-footerColor">Mehr Erfahren ></a>
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+            
+         </div>
+      </div>
+
+      <!-- div_5 -->
+      <div class=" color-3 group1-p-100 background-color color-3 min-size price-text-style price-p" style="width: auto; height: auto; margin-top: 50px;" id="description-id">
+
+         <div data-aos="fade-down">
+            <p class="price-fontSize-1 font-family-1">Unsere Dienstleistungen</p>
+            <p class="price-fontSize-2 font-family-2">Hier Erfahren Sie alles über unsere Pakete</p>
+         </div>
+
+         <div class="row" data-aos="fade-up">
+            <div class="col-12 col-md-4 col-lg-4  group1-mb-100">
+               <div class="align-items-center d-flex price-mb-1 price-text-style">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Das Grafik-Paket</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Geben Sie ihrem Unternehmen neue Farben oder Modernisieren Sie mit uns ihre Firmenpräsenz. Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+   
+            <div class="col-12 col-md-4 col-lg-4 group1-mb-100">
+               <div class="align-items-center d-flex price-mb-1 price-text-style">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Webseiten-Paket</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Schenken Sie ihrem Unternehmen ein neues Erscheinungsbild und mehr Professionalität. Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+   
+            <div class="col-12 col-md-4 col-lg-4 group1-mb-100">
+               <div class="align-items-center d-flex price-mb-1 price-text-style">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Basisplan</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Möchten Sie, dass ihre Werbung gesehen wird? Dann ist der Basisplan die perfekte Lösung für Sie. Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+         </div>
+
+         <div class="row group1-mt-100" data-aos="fade-up">
+            <div class="col-12 col-md-4 col-lg-4 group1-mb-100">
+               <div class="align-items-center d-flex price-text-style price-mb-1">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Standardplan</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Möchten Sie, dass wir für Sie Werbung, eine optimierte Vertriebskette sowie ihr Erscheinungsbild Online entwickeln, dann ist der Standardplan genau richtig für Sie. Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+   
+            <div class="col-12 col-md-4 col-lg-4 group1-mb-100">
+               <div class="align-items-center d-flex price-mb-1 price-text-style">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Premium-Plan</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Möchten Sie ihrem Unternehmen die besten Chancen für mehr Umsatz geben
+                  und ihre Onlinepräsenz gleichzeitig steigern? Dann ist der Premium-Plan, inklusive Webtict
+                  Plus, die richtige Entscheidung! Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+   
+            <div class="col-12 col-md-4 col-lg-4 group1-mb-100">
+               <div class="align-items-center d-flex price-mb-1 price-text-style">
+                  <span style="width: 5vw; height:5vw; border-radius: 50%; background-color: white;"></span>
+                  <span class="price-fontSize-3 font-family-1 group1-ml-50">Webtict Plus</span>
+               </div>
+               <p class="price-fontSize-4 font-family-2" style="text-align: justify;">
+                  Sie haben zu viel zu tun mit ihrem Unternehmen und verlieren manchmal den Überblick, dann ist Webtict Plus genau das, was Sie schon immer gesucht haben! Vereinbaren Sie jetzt mit uns ein kostenloses Gespräch.
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <!-- div_6-->
+      <div class="row color-3 min-size" style="margin: 0; background-color: #000; width: auto; height: auto;" >
+         <div class="col-12 col-md-12 col-lg-4 color-1 group3-pl-50 text-center">
+            <a href="index.html"><img src="images/Logo.png" alt="logo" width="auto" height="auto" class="img-fluid mx-auto"></a>
+         </div>
+         <div class="row col-12 col-md-12 col-lg-8 group3-pl-100 group3-pr-100 group3-pt-100 group3-pb-100 text-break min-size">
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 group3-mb-20 " style="margin-bottom: 30px;">
+               <p class="group3-fontSize-24 font-family-1 group3-mb-20 text-style">Unsere Dienstleistungen</p>
+               <a href="3-Price.html?pricetype=1" class="text-decoration-none  center-style"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">Einmalige Pläne</span></p></a>
+               <a href="3-Price.html?pricetype=2" class="text-decoration-none center-style" style="margin-right: 18px;"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">1 Monats Pläne</span></p></a>
+               <a href="3-Price.html?pricetype=3" class="text-decoration-none center-style" style="margin-right: 16px;"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">4 Monats Pläne</span></p></a>
+               <a href="3-Price.html?pricetype=4" class="text-decoration-none center-style" style="margin-right: 12px;"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">12 Monats Pläne</span></p></a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 group3-mb-20 group3-pl-0" style="margin-bottom: 30px;">
+               <p class="group3-fontSize-24 font-family-1 group3-mb-20 text-style">Schnelle Links</p>
+               <a href="2-About.html" class="text-decoration-none center-style" style="margin-right: 68px;"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">Über uns</span></p></a>
+               <a href="3-Price.html" class="text-decoration-none center-style margin-l-50"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex ">><span class="group3-fontSize-16 color-3 group3-ml-15">Preise/Dienstleistungen</span></p></a>
+               <!-- <a href="4-Portfolio.html" class="text-decoration-none center-style" style="margin-right: 70px;"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex center-style">><span class="group3-fontSize-16 color-3 group3-ml-15">Portfolio</span></p></a> -->
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 group3-mb-20" style="margin-bottom: 30px;">
+               <p class="group3-fontSize-24 font-family-1 group3-mb-20 text-style" style="margin-right: 13vw;">Kontakt</p>
+               <a href="mailto:maximilian.metzler@webtict.com" class="text-decoration-none center-style" target="_blank"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">maximilian.metzler@webtict.com</span></p></a>
+               <a href="tel:41782103919" class="text-decoration-none center-style" style="margin-right: 7.5em;" target="_blank"><p class="group3-fontSize-30 font-family-2 color-1 align-items-center d-flex">><span class="group3-fontSize-16 color-3 group3-ml-15">+41 782103919</span></p></a>
+            </div>
+         </div>
+      </div>
+
+      <!-- div_7 -->
+      <div class="row background-color min-size ">
+         <div class="d-flex row-custom" style="flex-direction: row; justify-content: space-around;">
+            <div class="col-custom mb-1 mt-1">
+               <a href="6-Datenschutzbestimmungen.html" class="color-3 text-decoration-none"><span class="font-size-15 font-family-2">Datenschutzbestimmungen</span></a>
+            </div>
+            <div class="col-custom mb-1 mt-1">
+               <a href="7-Bedingungen.html" class="color-3 text-decoration-none"><span class="font-size-15 font-family-2">Bedingungen und Konditionen</span></a>
+            </div>
+            <div class="col-custom mb-1 mt-1">
+               <a href="8-Impressum.html" class="color-3 text-decoration-none"><span class="font-size-15 font-family-2">Impressum</span></a>
+            </div>
+            <div class="col-custom mb-1 mt-1">
+               <a href="9-Cookies.html" class="color-3 text-decoration-none"><span class="font-size-15 font-family-2">Cookies</span></a>
+            </div>
+         </div>
+      </div>
+</div>
+   </body>
+</html>
